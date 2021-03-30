@@ -5,10 +5,6 @@
   color: whitesmoke;
   text-align: center;
 }
-body {
-  display: grid;
-  grid-template-rows: auto-fit;
-}
 
 .container {
   width: 100vw;
@@ -17,11 +13,11 @@ body {
   display: grid;
   grid-template:
     "nav nav nav nav nav" 50px
-    ".   profile main news            ." 1fr
-    ".   profile main most-viewed     ." 1fr
-    ".   recent main advert           ." 1fr
-    ".   recent main add-to-your-feed ." 1fr
-    ".    .      main footer          ." /
+    ".   profile main right-menu    ." 1fr
+    ".   profile main right-menu    ." 1fr
+    ".   recent  main right-menu     ." 1fr
+    ".   recent  main right-menu     ." 1fr
+    ".    .      main footer        ." /
     auto 200px 400px 300px auto;
 
   grid-gap: 20px;
@@ -43,6 +39,7 @@ body {
 
 .nav-list li {
   display: inline-block;
+  border: 1px solid white;
 }
 
 /* MINI PROFILE */
@@ -74,35 +71,48 @@ body {
   justify-self: center;
 }
 
-.profile.profile-pic {
-  place-items: center;
+/* RIGHT MENU */
+.right-menu {
+  grid-area: right-menu;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 300px);
+
+  grid-gap: 6px;
+  overflow: visible;
 }
 
-.recent {
-  grid-area: recent;
-  background-color: #ed34cb;
+.recent,
+.news,
+.most-viewed,
+.advert,
+.add-to-your-feed,
+.footer {
+  border-radius: 10px;
 }
+
 .main {
   grid-area: main;
   background-color: #b37ba4;
 }
+
+.recent {
+  background-color: #ed34cb;
+}
 .news {
-  grid-area: news;
   background-color: #f7b42a;
 }
 .most-viewed {
-  grid-area: most-viewed;
   background-color: #d64e24;
 }
 .advert {
-  grid-area: advert;
   background-color: #dccde8;
 }
 .add-to-your-feed {
-  grid-area: add-to-your-feed;
   background-color: #420039;
 }
+
 .footer {
-  grid-area: footer;
   background-color: #0d0628;
 }
