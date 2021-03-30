@@ -34,11 +34,22 @@
 
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 200px 1fr auto;
+}
+
+.logo {
+  place-items: left;
+}
+
+.nav-list {
+  border: 1px solid white;
 }
 
 .nav-list li {
   display: inline-block;
+}
+
+.nav div {
   border: 1px solid white;
 }
 
