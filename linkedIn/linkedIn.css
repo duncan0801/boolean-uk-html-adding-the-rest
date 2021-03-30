@@ -5,6 +5,10 @@
   color: whitesmoke;
   text-align: center;
 }
+body {
+  display: grid;
+  grid-template-rows: auto-fit;
+}
 
 .container {
   width: 100vw;
@@ -12,26 +16,68 @@
 
   display: grid;
   grid-template:
-    "nav nav nav" 50px
-    "profile main news" 1fr
-    "profile main most-viewed" 1fr
-    "recent main advert" 1fr
-    "recent main add-to-your-feed" 1fr
-    ". main footer"/
-    1fr minmax(200px, 1fr) 1fr;
+    "nav nav nav nav nav" 50px
+    ".   profile main news            ." 1fr
+    ".   profile main most-viewed     ." 1fr
+    ".   recent main advert           ." 1fr
+    ".   recent main add-to-your-feed ." 1fr
+    ".    .      main footer          ." /
+    auto 200px 400px 300px auto;
+
+  grid-gap: 20px;
 }
 
 .container {
   grid-area: container;
 }
+
+/* NAV BAR */
 .nav {
   grid-area: nav;
   background-color: #0072b1;
+
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr auto;
 }
+
+.nav-list li {
+  display: inline-block;
+}
+
+/* MINI PROFILE */
 .profile {
   grid-area: profile;
   background-color: #4a24d6;
+
+  display: grid;
 }
+
+.profile-pic,
+.profile-views,
+.post-views,
+.premium-ad,
+.my-items {
+  border: solid black 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  align-self: center;
+  justify-self: center;
+}
+
+.profile.profile-pic {
+  place-items: center;
+}
+
 .recent {
   grid-area: recent;
   background-color: #ed34cb;
